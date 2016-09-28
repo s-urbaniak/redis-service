@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -e
 
-name=redis-service
+name=redisservice
 os=linux
-version=0.0.1
+version=0.0.2
 arch=amd64
 
 acbuildend () {
@@ -19,7 +19,7 @@ GOARCH="${arch}"
 
 CGO_ENABLED=0 go build
 
-acbuild set-name s-urbaniak.github.io/rkt8s-workshop/redis-service
+acbuild set-name s-urbaniak.github.io/images/redisservice
 acbuild copy "${name}" /"${name}"
 acbuild set-exec /"${name}"
 acbuild port add www tcp 8080
